@@ -2,7 +2,6 @@
 from lib.gratitudes import Gratitudes
 
 
-
 def test_not_adding_gratitudes():
     """
     Tests not adding gratitude 
@@ -23,6 +22,7 @@ def test_add_multiple_gratitudes():
     gratitudes.add("friends")
     result = gratitudes.format()
     assert result == "Be grateful for: family, friends"
+
 
 def test_adding_blank_gratitude():
     """Not really how it would be used"""
