@@ -4,7 +4,9 @@ Copy this into a `recipe.md` in your project and fill it out.
 
 ## 1. Describe the Problem
 
-_Problem_
+_As a user
+So that I can keep track of my tasks
+I want to check if a text includes the string #TODO._
 
 ## 2. Design the Function Signature
 
@@ -13,15 +15,18 @@ _Include the name of the function, its parameters, return value, and side effect
 ```python
 # EXAMPLE
 
-def estimate_reading_time(text:str):
-    """Estimates reading time for a text (200 words = 1 min)
+def includes_todo(text:str):
+    """Checks text for '#TODO'
 
     Parameters: 
         text: a string containing words
 
     Returns: 
-        A sentence with an estimate of time in minutes.
-        e.g. "This text will take XX mins to read."
+        Confirms whether text includes '#TODO' with a string.
+        Returns: This text includes a #TODO.
+        or
+        Returns: This text does not include a #TODO.
+        
     
     Side effects: (state any side effects)
         This function doesn't print anything or have any other side-effects   
@@ -38,34 +43,40 @@ _Make a list of examples of what the function will take and return._
 # EXAMPLE
 
 """
-Given a string of 200 words
-Returns: "This text will take 1 mins to read"
+Given a string containing only "#TODO"
+Returns: "This text includes a #TODO."
 """
-estimate_reading_time(text) => "This text will take 1 mins to read"
+includes_todo('#TODO') => "This text includes a #TODO."
 
-"""
-Given a string of 300 words
-Returns: "This text will take 1.5 mins to read"
-"""
-estimate_reading_time(text) => "This text will take 1.5 mins to read"
 
-"""
-Given a string of 400 words
-Returns: "This text will take 2 mins to read"
-"""
-estimate_reading_time(text) => "This text will take 2 mins to read"
 
 """
 Given an empty string
-Returns: "Cannot give estimate of reading time if no text is given."
+Returns: "This text does not include a #TODO."
 """
-estimate_reading_time('') => "Cannot give estimate of reading time if no text is given."
+includes_todo('') => "This text does not include a #TODO."
+
 
 """
-Given a 5 word string
-Returns: "This text will take 0.025 mins to read"
+Given a long text with #TODO in it
+Returns: "This text includes a #TODO."
 """
-estimate_reading_time('one two three four five') => "This text will take 0.025 mins to read"
+includes_todo() => "This text includes a #TODO."
+
+
+"""
+Given a long text without #TODO in it
+Returns: "This text does not include a #TODO."
+"""
+includes_todo() => "This text does not include a #TODO."
+
+
+"""
+Given the wrong data type
+Returns: "Error: wrong data type submitted, please input text/strings only."
+"""
+includes_todo(123456) => "Error: wrong data type submitted, please input text/strings only."
+
 
 ```
 
