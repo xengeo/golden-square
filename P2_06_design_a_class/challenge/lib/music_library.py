@@ -3,7 +3,8 @@
 """Class to track music"""
 
 class MusicLibrary:
-
+    """Class to track music"""
+    
     def __init__(self):
         self._my_tracks = []
 
