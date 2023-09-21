@@ -5,7 +5,9 @@ Copy this into a `recipe.md` in your project and fill it out.
 ## 1. Describe the Problem
 
 _
-Problem
+As a user
+So that I can keep track of my music listening
+I want to add tracks I've listened to and see a list of them.
 _
 
 ## 2. Design the Class Interface
@@ -14,39 +16,31 @@ _Include the initializer, public properties, and public methods with all paramet
 
 ```python
 
-class Tasks:
+class MusicLibrary:
 
     def __init__(self):
         # Parameters:
         #   Nothing
         # Side effects:
-        #   Initialise an empty list to store tasks in an instance variable
+        #   Initialise an empty list to store songs in an instance variable
         pass # No code here yet
 
-    def add_task(self, task:str):
+    def add_track(self, track:str):
         # Parameters:
-        #   task: string representing a single task
+        #   track: string representing a track the user has listened to
         # Returns:
         #   Nothing
         # Side-effects
-        #   Saves the task to the task list
+        #   Saves the track to the track list
         pass # No code here yet
 
-    def list_tasks(self):
+    def list_tracks(self):
         # Returns:
-        #   Lists task in a user friendly format
+        #   Lists of track the user has listened to in a user friendly format
         # Side-effects:
         #   No side-effects
         pass # No code here yet
 
-    def mark_complete(self, task):
-        # Parameters:
-        #   task: string representing a single task
-        # Returns:
-        #   Friendly message saying task is complete
-        # Side-effects:
-        #   Removes the task from the list
-        pass
 ```
 
 ## 3. Create Examples as Tests
@@ -56,9 +50,51 @@ _Make a list of examples of how the class will behave in different situations._
 ``` python
 
 """
+Initially, there should be no tracks in the music library
+# list_tracks should return a message "You have no saved tracks"
+"""
+my_music = MusicLibrary()
+my_music.list_tracks() # => "You have no saved tracks"
+
 
 """
+Given one track add_track should add the track
+# list_tracks should list the track
+"""
+my_music = MusicLibrary()
+my_music.add_track('Song 1')
+my_music.list_tracks() # => "You have listened to: Song 1"
 
+
+"""
+Given 3 tracks add_track should add the tracks
+# list_tracks should list the tracks
+"""
+my_music = MusicLibrary()
+my_music.add_track('Song 1')
+my_music.add_track('Song 2')
+my_music.add_track('Song 3')
+my_music.list_tracks() # => "You have listened to: Song 1, Song 2, Song 3"
+
+
+"""
+Given empty string 
+add_track should not add the track and raise error
+# list_tracks should not list the song
+"""
+my_music = MusicLibrary()
+my_music.add_track('') # => raise error "Error: invalid track, please provide a track name"
+my_music.list_tracks() # => "You have no saved tracks"
+
+
+"""
+Given an invalid input (not string)
+add_track should not add the track and raise error
+# list_tracks should not list the song
+"""
+my_music = MusicLibrary()
+my_music.add_track(24235) # => raise error "Error: invalid track, please provide a track name"
+my_music.list_tracks() # => "You have no saved tracks"
 
 ```
 
