@@ -1,6 +1,6 @@
 # File: P2_06_design_a_class/challenge/lib/music_library.py
 
-"""Class to track music"""
+"""Module with MusicLibrary class to store songs listened to"""
 
 class MusicLibrary:
     """Class to track music"""
