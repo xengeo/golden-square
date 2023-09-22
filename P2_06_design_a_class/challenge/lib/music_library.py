@@ -13,6 +13,8 @@ class MusicLibrary:
             raise Exception(
                 "Error: invalid track, please provide a track name"
                 )
+        if track in self._my_tracks:
+            return "This song is already added to your library"
         self._my_tracks.append(track)
 
     def list_tracks(self):
