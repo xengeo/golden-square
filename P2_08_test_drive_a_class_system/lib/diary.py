@@ -108,4 +108,4 @@ class DiaryEntry:
         self._read_so_far = chunk_end
 
         return ' '.join(chunk_words)
-        pass
+        
