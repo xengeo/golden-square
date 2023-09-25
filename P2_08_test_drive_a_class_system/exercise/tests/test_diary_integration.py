@@ -1,5 +1,6 @@
 # File: tests/test_diary_integration.py
-from lib.diary import Diary, DiaryEntry
+from lib.diary import Diary
+from lib.diary_entry import DiaryEntry
 import pytest
 
 

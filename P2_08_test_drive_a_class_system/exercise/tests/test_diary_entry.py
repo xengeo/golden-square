@@ -1,5 +1,5 @@
 #  File: tests/test_diary_entry.py
-from lib.diary import DiaryEntry
+from lib.diary_entry import DiaryEntry
 
 
 """

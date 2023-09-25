@@ -4,14 +4,24 @@ import math
 class Diary:
     def __init__(self):
         self._diary_entries = []
+        self._task_list = []
 
-    def add(self, entry) -> None:
+    def add_diary_entry(self, entry) -> None:
         """        
         Parameters: entry: an instance of DiaryEntry
         Returns:    Nothing
         Side-effects:   Adds the entry to the entries list
         """
+        # Add check to make sure entry is an instance of DiaryEntry
+        self._diary_entries.append(entry)
 
+    def add_task_entry(self, entry) -> None:
+        """        
+        Parameters: entry: an instance of DiaryEntry
+        Returns:    Nothing
+        Side-effects:   Adds the entry to the entries list
+        """
+        # Add check to make sure entry is an instance of DiaryEntry
         self._diary_entries.append(entry)
 
     def all(self) -> list:
