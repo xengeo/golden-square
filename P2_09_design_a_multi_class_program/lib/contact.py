@@ -12,6 +12,6 @@ class Contact:
         self.name = name
         self.number = number
 
-    def format():
+    def format(self):
         # Returns name and number in user friendly format
-        pass
+        return f"{self.name}: {self.number}"

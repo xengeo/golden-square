@@ -6,6 +6,8 @@ import pytest
 # my imports
 from lib.diary import Diary
 from lib.diary_entry import DiaryEntry
+from lib.contact import Contact
+from lib.task import Task
 
 
 """
@@ -69,3 +71,45 @@ def test_find_best_entry_raises_error_for_test_0wpm():
     with pytest.raises(Exception) as err:
         diary.find_best_entry_for_reading_time(0, 1)
     assert str(err.value) == "wpm cannot be 0"
+
+
+"""
+Given one diary entry with 2 contacts
+#list_all_contacts returns formatted list of contacts
+"""
+def test_list_all_contacts_for_all_entries_formatted():
+    
+    diary = Diary()
+
+    entry_1 = DiaryEntry('My title 1', 'one two three four')
+
+    contact_1 = Contact('Bob', '09876543213')
+    contact_2 = Contact('Rob', '04736548456')
+
+    entry_1.add_contact(contact_1)
+    entry_1.add_contact(contact_2)
+    
+    diary.add_entry(entry_1)
+
+    assert diary.list_all_contacts() == """All contacts:\nBob: 09876543213\nRob: 04736548456"""
+
+
+"""
+Given one diary entry with 2 tasks
+#list_all_tasks returns formatted list of tasks and compeltion status
+"""
+def test_list_all_tasks_for_all_entries_formatted():
+    
+    diary = Diary()
+
+    entry_1 = DiaryEntry('My title 1', 'one two three four')
+
+    task_1 = Task('Walk the dog')
+    task_2 = Task('Walk the cat')
+
+    entry_1.add_task(task_1)
+    entry_1.add_task(task_2)
+    
+    diary.add_entry(entry_1)
+
+    assert diary.list_all_tasks() == """All tasks:\nWalk the dog\nWalk the cat"""

@@ -2,6 +2,7 @@
 
 from lib.diary_entry import DiaryEntry
 from lib.contact import Contact
+from lib.task import Task
 
 """Given a valid contact
 List method returns this contact in a list"""
@@ -18,7 +19,9 @@ list_task returns that task
 """
 def test_add_task_to_task_list():
     entry_1 = DiaryEntry('Title1', 'one two')
-    entry_1.add_task('Walk the dog')
-    assert entry_1.list_tasks() == ['Walk the dog']
+    task_1 = Task('Walk the dog')
+    entry_1.add_task(task_1)
+    assert entry_1.list_tasks() == [task_1]
+
 
 # add more tests for invalid types

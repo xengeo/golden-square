@@ -13,9 +13,11 @@ class DiaryEntry:
         self._contact_list = []
         self._task_list = []
 
+
     def count_words(self):
         """Returns: An integer representing the number of words in the contents"""
         return len(self.contents.split())
+
 
     def reading_time(self, wpm:int):
         """wpm = no. of words user can read per min. Returns: int, reading time estimate in mins"""
@@ -28,6 +30,7 @@ class DiaryEntry:
 
         return math.ceil(reading_time)
 
+
     def add_contact(self, contact):
         # Parameters:
         #       contact instance of contact class
@@ -35,17 +38,20 @@ class DiaryEntry:
         #       Adds contact to the contact list
         self._contact_list.append(contact)
 
+
     def list_contacts(self):
         # Parameters:   None
         # Returns:      List all contacts stored in entry
         return self._contact_list
     
+
     def add_task(self, task):
         # Parameters:
         #           task: Instance of task class
         # Side effect:
         #           Adds task to the task list
         self._task_list.append(task)
+
 
     def list_tasks(self):
         # Parameters:   None
