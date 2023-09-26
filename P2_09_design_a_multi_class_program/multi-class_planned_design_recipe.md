@@ -42,86 +42,30 @@ Verbs:
     - track [contacts ]
     - list [contacts]
 
-
- ┌──────────────────────────────┐
- │Diary:                        │                                   ┌───────────────────────────────┐
- │                              │                                   │                               │
- │- Property: entry_list        │                                   │                               │
- │- add entries()               │                                   │                               │
- │- list all entries()          │                                   │                               │
- │- find best entry()           │                                   │                               │
- │                              │                                   │                               │
- │                              │                                   │                               │
- │                              │                                   │                               │
- │                              │                                   │                               │
- │                              │                                   │                               │
- │                              │                                   │                               │
- │                              │                                   │                               │
- └──────────────┬───────────────┘                                   │                               │
-                │                                                   │                               │
-                │                                                   └───────────────────────────────┘
-                │  Diary stores list of entries
-                │
-                │
-                │
-                ▼
- ┌──────────────────────────────┐
- │Entry                         │                       ┌─────────────────────────────┐
- │                              │                       │ Contact                     │
- │Properties: title, contents,  │                       │ Properties: name, number    │
- │            contact_list,     │                       │                             │
- │            task_list         │Entry stores list of   │                             │
- │Methods:                      │contacts.              │                             │
- │Count_words()                 ├─────────────────────► │                             │
- │Add the contact()             │                       │                             │
- │List all the contacts()       │                       │                             │
- │                              │                       │                             │
- │                              │                       │                             │
- │                              │                       │                             │
- └───────────────┬──────────────┘                       └─────────────────────────────┘
-                 │
-                 │
-                 │
-                 │ Entry Stores                 Nouns:
-                 │                                  - diary
-                 │                                  - diary entries
-                 │                                  - tasks
-                 ▼                                  - todo list
-   ┌────────────────────────────┐                   - contacts [mobile number]
-   │                            │
-   │TaskList:                   │               Verbs:
-   │Properties: list_of_tasks   │                   - record (add)
-   │                            │                   - read (get) [entries]
-   │ Methods:                   │                   - select [entires]
-   │Adds()                      │                   - track [contacts ]
-   │Incomplete()                │                   - list [contacts]
-   │Complete()                  │
-   │Give_up()                   │
-   │                            │
-   │                            │
-   │                            │
-   └────────────┬───────────────┘
-                │
-                │
-                │
-                │
-                │
-                │
-                ▼
-┌───────────────────────────────┐
-│                               │
-│Task:                          │
-│Properties: task, complete     │
-│                               │
-│                               │
-│Methods:                       │
-│Mark_complete()                │                                                            null
-│                               │
-│                               │
-│                               │
-│                               │
-│                               │
-└───────────────────────────────┘
+                                                                      ┌──────────────────────┐
+                                                                      │Contact()             │
+                                                                      │                      │
+┌───────────────────────────────────┐                                 │ attr. name           │
+│Diary()                            │   ┌───────────────────────┐     │       number         │
+│                                   │   │DiaryEntry()           │     │                      │
+│ attr: entry_list                  │   │                       │     │                      │
+│                                   │   │attr. title, contents  │     │                      │
+│ add_entry()                       │   │     contact_list      │     │                      │
+│                                   │   │     task_list         ├─────►                      │
+│ list_all_entries()                │   │ format_entry()        │     └──────────────────────┘
+│                                   ├───► count_words()         │
+│ find_best_entry()                 │   │ reading_time()        │     ┌──────────────────────┐
+│                                   │   │ set_task()            │     │Task()                │
+│ find_phone_numbers()              │   │ list_task()           │     │                      │
+│                                   │   │ set_contact()         │     │ attr. task           │
+│                                   │   │ list_contact()        ├─────►       complete       │
+│                                   │   │ find_number()         │     │                      │
+│                                   │   │                       │     │  mark_complete()     │
+│                                   │   └───────────────────────┘     │                      │
+└───────────────────────────────────┘                                 │                      │
+                                                                      │                      │
+                                                                      │                      │
+                                                                      └──────────────────────┘
 
 ```
 
@@ -132,64 +76,81 @@ _Also design the interface of each class in more detail._
 class Diary():
 
     def __init__(self):
-        # entry_list property
+        # Parameters: None
+        # Side-effects: Initialises entry_list private property
 
-
-    def add_diary_entry(self):
-        # Add instance of diary entry to entry_list
+    def add_diary_entry(self, entry):
+        # Parameters: instance of a DiaryEntry class
+        # Returns: None
+        # Side-effects: Append instance of DiaryEntryy to entry_list
         pass
-
 
     def list_all_entries(self):
-        # List all entries
+        # Parameters: None
+        # Returns: List of all elements in entry_list
         pass
 
-    def find_best_entry(self, wpm, minutes):
+    def find_best_entry(self, wpm:int, minutes:int):
+        # Parameters: wpm, minutes 
+        # Returns: The diary entry object the user can read given wpm & minutes
+        pass
+
+    def find_phone_numbers(self):
+        # Parameters: None
+        # Returns: List of all mobile phone numbers found in diaryentries
         pass
 
 
 class DiaryEntry:
 
     def __init__(self, title:str, contents:str) -> None: 
-    # self.title = title          # Public property
-    # self.contents = contents    # Public property
-    # self._contact_list = []
-    # self._task_list = []
+        # self.title = title          # Public property
+        # self.contents = contents    # Public property
+        # self._contact_list = []
+        # self._task_list = []
         pass
 
     def add_contact(self, contact):
         # Parameters:
-            # contact instance of contact class
-        # Side effect
-        # Adds contact to the contact list
+        #       contact instance of contact class
+        # Side effect:
+        #       Adds contact to the contact list
 
     def add_task(self, task):
         # Parameters:
-            # task: Instance of task class
-        # Side effect
-        # Adds task to the task list
+        #           task: Instance of task class
+        # Side effect:
+        #           Adds task to the task list
 
     def count_words(self):
-    """Returns: An integer representing the number of words in the contents"""
+        """Returns: An integer representing the number of words in the contents"""
+        # Parameters: None
+        # Returns: Number of words in contents of diary entry obj (int)
         pass
 
     def reading_time(self, wpm):
-    # Parameters:
-    #   wpm: an integer representing the number of words the user can read
-    #        per minute
-    # Returns:
-    #   An integer representing an estimate of the reading time in minutes
-    #   for the contents at the given wpm.
+        # Parameters:
+        #   wpm: an integer representing the number of words the user can read
+        #        per minute
+        # Returns:
+        #   An integer representing an estimate of the reading time in minutes
+        #   for the contents at the given wpm.
         pass
 
     def list_contacts(self):
-        # list all contacts
+        # Parameters:   None
+        # Returns:      List all contacts stored in entry
         pass
 
     def list_tasks(self):
-        # list all task
+        # Parameters:   None
+        # Returns:      List all tasks stored in entry
         pass
 
+    def find_phone_number(self):
+        # Parameters: None
+        # Returns: List of numbers found in entry
+        pass
 
 
 class Todo:
@@ -214,21 +175,21 @@ class Todo:
 
 
 class Contact:
-    # Public Properties:
+        # Public Properties:
         #   name: string representin contact name
         #   number: string representing contact number
+
     def __init__(self, name, number):
-    # Parameters:
-    #   name: string representin contact name
-    #   number: string representing contact number
-    # Side-effects:
-    # sets name and number properties
-    pass
+        # Parameters:
+        #   name: string representin contact name
+        #   number: string representing contact number
+        # Side-effects:
+        # sets name and number properties
+        pass
 
     def format():
         # Returns name and number in user friendly format
-    
-    pass
+        pass
 
 ```
 
@@ -282,6 +243,7 @@ diary.add(diary_entry1)
 diary.add(diary_entry2)
 diary.find_the_best_entry(0, 1) #=> error("Wpm can't be 0")
 
+
 ```
 ### Diary Entry integration
 ``` python
@@ -290,8 +252,18 @@ diary.find_the_best_entry(0, 1) #=> error("Wpm can't be 0")
 List method returns this contact in a list"""
 entry = DiaryEntry('Title1', 'one two')
 contact = Contact('name', '12345678')
-entry.add_contact(contact)
+entry.set_contact(contact)
 entry.list_contacts() #=> [contact]
+
+"""
+Given a task to DiaryEntry set_task
+list_task returns that task
+"""
+entry_1 = DiaryEntry('Title1', 'one two')
+entry_1.set_task('Walk the dog')
+entry_1.list_task() # => ['Walk the dog']
+
+# Other tests: test find_number()
 
 ```
 ###
@@ -303,12 +275,67 @@ a more granular level of detail._
 ```python
 # EXAMPLE
 
+# DiaryEntry()
+# ============
 """
-Given a track with a title and an artist
-We see the title reflected in the title property
+Given a title and contents,
+we see the titel and contents reflected in title and contents properties
 """
-track = Track("Carte Blanche", "Veracocha")
-track.title # => "Carte Blanche"
+entry_1 = DiaryEntry('Title1', 'one two')
+entry_1.title # => 'Title1'
+entry_1.contents # => 'one two'
+
+"""
+Given a title and contents with 4 words,
+count_words() returns: int 4
+"""
+entry_1 = DiaryEntry('Title1', 'one two three four')
+entry_1.count_words() # => 4
+
+"""
+Given a title and contents with 4 words,
+wpm of 2
+reading_time() returns: 
+"""
+entry_1 = DiaryEntry('Title1', 'one two three four')
+entry_1.reading_time(2) # => 2
+
+# Contact()
+# ============
+
+"""
+Given a name and number
+name and number attributes return given values
+"""
+contact_1 = Contact('Name1', '076452347851')
+contact_1.name # => 'Name1'
+contact_1.number # => '076452347851'
+
+# Task()
+# ============
+"""
+Given a task
+task attribute return given task
+complete atteribute returns default False
+"""
+tast_1 = Task('Walk the dog')
+tast_1.task # => 'Walk the dog'
+tast_1.complete # => False
+
+"""
+Given a task
+task attribute return given task
+When we run mark_complete()
+complete atteribute returns default True
+"""
+tast_1 = Task('Walk the dog')
+tast_1.task # => 'Walk the dog'
+tast_1.complete # => False
+task_1.mark_complete()
+tast_1.complete # => True
+
+
+
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
