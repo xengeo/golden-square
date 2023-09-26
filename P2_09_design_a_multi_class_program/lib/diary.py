@@ -37,3 +37,10 @@ class Diary:
             if entry.reading_time(wpm) <= minutes:
                 return entry
             
+    def list_all_contacts(self):
+        """
+        For each diary entry, retreive the names and their respective phone numbers
+        Returns: a list of dicts
+        """
+        pass
+            
