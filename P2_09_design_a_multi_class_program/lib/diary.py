@@ -1,5 +1,6 @@
 # File: lib/diary.py
-import math
+
+from lib.diary_entry import DiaryEntry
 
 class Diary:
     def __init__(self):
@@ -11,7 +12,9 @@ class Diary:
         Returns:    Nothing
         Side-effects:   Adds the entry to the entries list
         """
-        # Add check to make sure entry is an instance of DiaryEntry
+        if not isinstance(entry, DiaryEntry):
+            raise Exception("Entry must be DiaryEntry object")
+        
         self._diary_entries.append(entry)
 
     def list_all_entries(self) -> list:
@@ -28,7 +31,8 @@ class Diary:
         #   An instance of DiaryEntry representing the entry that is closest to,
         #   but not over, the length that the user could read in the minutes
         #   they have available given their reading speed.
-
+        if minutes == 0:
+            raise Exception("Minutes can't be 0")
         for entry in self._diary_entries:
             if entry.reading_time(wpm) <= minutes:
                 return entry

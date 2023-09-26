@@ -3,8 +3,11 @@
 import math
 
 class DiaryEntry:
+    """Class for a single diary entry"""
 
     def __init__(self, title:str, contents:str) -> None: 
+        """initialise attributes"""
+
         self.title = title          # Public property
         self.contents = contents    # Public property
         self._contact_list = []
@@ -14,18 +17,15 @@ class DiaryEntry:
         """Returns: An integer representing the number of words in the contents"""
         return len(self.contents.split())
 
-    def reading_time(self, wpm):
-        # Parameters:
-        #   wpm: an integer representing the number of words the user can read
-        #        per minute
-        # Returns:
-        #   An integer representing an estimate of the reading time in minutes
-        #   for the contents at the given wpm.
+    def reading_time(self, wpm:int):
+        """wpm = no. of words user can read per min. Returns: int, reading time estimate in mins"""
+
         if wpm == 0:
-            raise Exception('Cannot calculate reading time with wpm of 0')
-        reading_time = 0
+            raise Exception('wpm cannot be 0')
+        
         words = self.count_words()
-        reading_time += words / wpm  # Minutes to read all words
+        reading_time = words / wpm  # Minutes to read all words
+
         return math.ceil(reading_time)
 
 
