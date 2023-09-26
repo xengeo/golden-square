@@ -200,68 +200,68 @@ combinations that reflect the ways in which the system will be used._
 
 ### Integration test
 ```python
-"""
-Test add method with 2 valid entires.
-All method returns list with added entries included.
-"""
-diary = ()
-diary_entry1 = DiaryEntry('Title1', 'one two three')
-diary.add(diary_entry1)
-diary.all() # => [diary_entry1]
+# """
+# Test add method with 2 valid entires.
+# All method returns list with added entries included.
+# """
+# diary = ()
+# diary_entry1 = DiaryEntry('Title1', 'one two three')
+# diary.add(diary_entry1)
+# diary.all() # => [diary_entry1]
 
 
-"""Test add method ignores invalid entries"""
-diary = ()
-diary_entry1 = 'Entry1'
-diary.add(diary_entry1)
-diary.all() # => []
+# """Test add method ignores invalid entries"""
+# diary = ()
+# diary_entry1 = 'Entry1'
+# diary.add(diary_entry1)
+# diary.all() # => []
 
 
-"""Test find the best entry given two entires with
-2 words length and 4 words length with 2wpm and 1min
-returns """
-diary = ()
-diary_entry1 = DiaryEntry('Title1', 'one two')
-diary_entry1 = DiaryEntry('Title2', 'three four five six')
-diary.add(diary_entry1)
-diary.add(diary_entry2)
-diary.find_the_best_entry(2, 1) #=> [entry1]
+# """Test find the best entry given two entires with
+# 2 words length and 4 words length with 2wpm and 1min
+# returns """
+# diary = ()
+# diary_entry1 = DiaryEntry('Title1', 'one two')
+# diary_entry1 = DiaryEntry('Title2', 'three four five six')
+# diary.add(diary_entry1)
+# diary.add(diary_entry2)
+# diary.find_the_best_entry(2, 1) #=> [entry1]
 
-"""Given and 0minutes find the best entry returns an error"""
-diary = ()
-diary_entry1 = DiaryEntry('Title1', 'one two')
-diary_entry1 = DiaryEntry('Title2', 'three four five six')
-diary.add(diary_entry1)
-diary.add(diary_entry2)
-diary.find_the_best_entry(1, 0) #=> error("Minutes can't be 0")
+# """Given and 0minutes find the best entry returns an error"""
+# diary = ()
+# diary_entry1 = DiaryEntry('Title1', 'one two')
+# diary_entry1 = DiaryEntry('Title2', 'three four five six')
+# diary.add(diary_entry1)
+# diary.add(diary_entry2)
+# diary.find_the_best_entry(1, 0) #=> error("Minutes can't be 0")
 
-"""Given and 0 wpm find the best entry returns an error"""
-diary = ()
-diary_entry1 = DiaryEntry('Title1', 'one two')
-diary_entry1 = DiaryEntry('Title2', 'three four five six')
-diary.add(diary_entry1)
-diary.add(diary_entry2)
-diary.find_the_best_entry(0, 1) #=> error("Wpm can't be 0")
+# """Given and 0 wpm find the best entry returns an error"""
+# diary = ()
+# diary_entry1 = DiaryEntry('Title1', 'one two')
+# diary_entry1 = DiaryEntry('Title2', 'three four five six')
+# diary.add(diary_entry1)
+# diary.add(diary_entry2)
+# diary.find_the_best_entry(0, 1) #=> error("Wpm can't be 0")
 
 
 ```
 ### Diary Entry integration
 ``` python
 
-"""Given a valid contact
-List method returns this contact in a list"""
-entry = DiaryEntry('Title1', 'one two')
-contact = Contact('name', '12345678')
-entry.set_contact(contact)
-entry.list_contacts() #=> [contact]
+# """Given a valid contact
+# List method returns this contact in a list"""
+# entry = DiaryEntry('Title1', 'one two')
+# contact = Contact('name', '12345678')
+# entry.set_contact(contact)
+# entry.list_contacts() #=> [contact]
 
-"""
-Given a task to DiaryEntry set_task
-list_task returns that task
-"""
-entry_1 = DiaryEntry('Title1', 'one two')
-entry_1.set_task('Walk the dog')
-entry_1.list_task() # => ['Walk the dog']
+# """
+# Given a task to DiaryEntry set_task
+# list_task returns that task
+# """
+# entry_1 = DiaryEntry('Title1', 'one two')
+# entry_1.set_task('Walk the dog')
+# entry_1.list_task() # => ['Walk the dog']
 
 # Other tests: test find_number()
 
@@ -277,62 +277,62 @@ a more granular level of detail._
 
 # DiaryEntry()
 # ============
-"""
-Given a title and contents,
-we see the titel and contents reflected in title and contents properties
-"""
-entry_1 = DiaryEntry('Title1', 'one two')
-entry_1.title # => 'Title1'
-entry_1.contents # => 'one two'
+# """
+# Given a title and contents,
+# we see the titel and contents reflected in title and contents properties
+# """
+# entry_1 = DiaryEntry('Title1', 'one two')
+# entry_1.title # => 'Title1'
+# entry_1.contents # => 'one two'
 
-"""
-Given a title and contents with 4 words,
-count_words() returns: int 4
-"""
-entry_1 = DiaryEntry('Title1', 'one two three four')
-entry_1.count_words() # => 4
+# """
+# Given a title and contents with 4 words,
+# count_words() returns: int 4
+# """
+# entry_1 = DiaryEntry('Title1', 'one two three four')
+# entry_1.count_words() # => 4
 
-"""
-Given a title and contents with 4 words,
-wpm of 2
-reading_time() returns: 
-"""
-entry_1 = DiaryEntry('Title1', 'one two three four')
-entry_1.reading_time(2) # => 2
+# """
+# Given a title and contents with 4 words,
+# wpm of 2
+# reading_time() returns: 
+# """
+# entry_1 = DiaryEntry('Title1', 'one two three four')
+# entry_1.reading_time(2) # => 2
 
 # Contact()
 # ============
 
-"""
-Given a name and number
-name and number attributes return given values
-"""
-contact_1 = Contact('Name1', '076452347851')
-contact_1.name # => 'Name1'
-contact_1.number # => '076452347851'
+# """
+# Given a name and number
+# name and number attributes return given values
+# """
+# contact_1 = Contact('Name1', '076452347851')
+# contact_1.name # => 'Name1'
+# contact_1.number # => '076452347851'
 
 # Task()
 # ============
-"""
-Given a task
-task attribute return given task
-complete atteribute returns default False
-"""
-tast_1 = Task('Walk the dog')
-tast_1.task # => 'Walk the dog'
-tast_1.complete # => False
+# """
+# Given a task
+# task attribute return given task
+# complete atteribute returns default False
+# """
+# tast_1 = Task('Walk the dog')
+# tast_1.task # => 'Walk the dog'
+# tast_1.complete # => False
 
-"""
-Given a task
-task attribute return given task
-When we run mark_complete()
-complete atteribute returns default True
-"""
-tast_1 = Task('Walk the dog')
-tast_1.task # => 'Walk the dog'
-tast_1.complete # => False
-task_1.mark_complete()
-tast_1.complete # => True
+# """
+# Given a task
+# task attribute return given task
+# When we run mark_complete()
+# complete atteribute returns default True
+# """
+# tast_1 = Task('Walk the dog')
+# tast_1.task # => 'Walk the dog'
+# tast_1.complete # => False
+# task_1.mark_complete()
+# tast_1.complete # => True
 
 
 

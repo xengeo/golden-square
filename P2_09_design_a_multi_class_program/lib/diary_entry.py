@@ -28,5 +28,30 @@ class DiaryEntry:
 
         return math.ceil(reading_time)
 
+    def add_contact(self, contact):
+        # Parameters:
+        #       contact instance of contact class
+        # Side effect:
+        #       Adds contact to the contact list
+        self._contact_list.append(contact)
+
+    def list_contacts(self):
+        # Parameters:   None
+        # Returns:      List all contacts stored in entry
+        return self._contact_list
+    
+    def add_task(self, task):
+        # Parameters:
+        #           task: Instance of task class
+        # Side effect:
+        #           Adds task to the task list
+        self._task_list.append(task)
+
+    def list_tasks(self):
+        # Parameters:   None
+        # Returns:      List all tasks stored in entry
+        return self._task_list
+
+
 
         

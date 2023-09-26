@@ -36,3 +36,4 @@ def test_reading_time_with_0wpm_raises_error():
     with pytest.raises(Exception) as err:
         entry.reading_time(0)
     assert str(err.value) == "wpm cannot be 0"
+
