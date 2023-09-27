@@ -48,8 +48,6 @@ def test_search_returns_matched_track():
     assert my_library.search('keyword') == [first_track]
 
 
-
-
 """
 Given a track, keyword unmatched
 #search returns the empty list

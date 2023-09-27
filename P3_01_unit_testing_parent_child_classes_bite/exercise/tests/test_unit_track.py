@@ -2,6 +2,7 @@
 
 from lib.track import Track
 
+
 """
 Test initialise a track
 #matches returns True for title match only
@@ -9,8 +10,6 @@ Test initialise a track
 def test_one_track_keyword_match_title_returns_true():
     track_1 = Track('track_1', 'artist_1')
     assert track_1.matches('track_1') == True
-
-
 
 
 """
