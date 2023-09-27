@@ -29,11 +29,24 @@ def test_title_exact_match_search_returns_list_with_track():
 Given keyword exact match for artist 
 #search returns: List with track
 """
-def test_artist_exact_match_search_returns_list_with_track():
+def test_artist_exact_match_search_returns_list_with_one_track():
     my_library = MusicLibrary()
     track_1 = Track('Title1', 'Artist1')
     my_library.add(track_1)
     assert my_library.search('Artist1') == [track_1]
+
+
+"""
+Given 2 tracks, keyword exact match for artist in both tracks
+#search returns: List with 2 tracks
+"""
+def test_artist_exact_match_search_returns_list_with_two_tracks():
+    my_library = MusicLibrary()
+    track_1 = Track('Title1', 'Artist1')
+    track_2 = Track('Title2', 'Artist1')
+    my_library.add(track_1)
+    my_library.add(track_2)
+    assert my_library.search('Artist1') == [track_1, track_2]
 
 
 """

@@ -37,15 +37,33 @@ def test_add_mock_two_tracks_returns_track_list():
 
 
 """
-Given a track, keyword matched
+Given 2 tracks, and keyword matched 1 track
 #search returns a list of matched track instance
 """
-def test_search_returns_matched_track():
+def test_add_two_tracks_search_returns_one_matched_track():
     my_library = MusicLibrary()
     first_track = Mock()
     first_track.matches.return_value = True
+    second_track = Mock()
+    second_track.matches.return_value = False
     my_library.add(first_track)
+    my_library.add(second_track)
     assert my_library.search('keyword') == [first_track]
+
+
+"""
+Given 2 tracks, and keyword matched 2 track
+#search returns a list of 2 matched track instance
+"""
+def test_add_two_tracks_search_returns_two_matched_track():
+    my_library = MusicLibrary()
+    first_track = Mock()
+    first_track.matches.return_value = True
+    second_track = Mock()
+    second_track.matches.return_value = True
+    my_library.add(first_track)
+    my_library.add(second_track)
+    assert my_library.search('keyword') == [first_track, second_track]
 
 
 """
