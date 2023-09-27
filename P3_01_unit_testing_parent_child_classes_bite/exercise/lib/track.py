@@ -2,11 +2,14 @@
 
 class Track:
     def __init__(self, title, artist):
-        # title and artist are both strings
+        """Initialise private attributes"""
         self._title = title
         self._artist = artist
 
     def matches(self, keyword):
-        # keyword is a string
-        # Returns true if the keyword matches either the title or artist
-        return keyword in self._title or keyword in self._artist
+        """Searches for matches with keyword 
+        Returns: False / True (for subset or superset match)"""
+        return    keyword in self._title  \
+               or keyword in self._artist \
+               or self._title in keyword  \
+               or self._artist in keyword
