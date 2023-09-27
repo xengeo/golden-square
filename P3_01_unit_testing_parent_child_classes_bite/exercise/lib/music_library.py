@@ -25,5 +25,5 @@ class MusicLibrary:
         """
         return [
             track for track in self.track_list 
-            if track.matches(keyword) == True
+            if track.matches(keyword)
         ]
